@@ -7,6 +7,7 @@ var bot = new fbhInstance();
 bot.login('token');
 bot.setCog('cog link');
 ```
+NOTE: This is only the core, I am not supplying you with set of instructions how to make authentication system or anything, that is up to you.. You have been given the core, most powerful element of it all.
 
 ## Features
 Injects a layer of FBH options and cogs in Discord.js webpack version
