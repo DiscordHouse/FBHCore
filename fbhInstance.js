@@ -35,7 +35,7 @@ class fbhInstance extends Discord.Client {
         var command = base[0];
         if (this.cogs.has(command)) {
           this.cogs.get(command).function(this, m, m.content.substr(this.fbhOptions.prefix.length + base[0].length + 1));
-          console.log('Executed cog[' + command + ']')
+          console.log('%c[CogHandler] %cExecuted cog %c' + command + '!', 'color: #a0a;', 'color: #000;', 'color: #d0d;')
         }
       }
     });
@@ -48,13 +48,12 @@ class fbhInstance extends Discord.Client {
       if (cogResolvable.startsWith('https://')) {
         var xhr = new XMLHttpRequest();
         xhr.onload = function (evt) {
-          console.log(xhr);
           if (xhr.getAllResponseHeaders().includes('content-type: application/javascript')) {
             if (xhr.responseText.startsWith('/* Linkable cog */')) {
               eval(xhr.responseText);
-              return console.log('[CogHandler] Loaded cog through link!')
+              return console.log('%c[CogHandler] %cLoaded cog through link!', 'color: #a0a;', 'color: #000;')
             } else {
-              return console.error('[CogHandler] Invalid cog link!');
+              return console.error('%c[CogHandler] %cInvalid cog link!', 'color: #a0a;', 'color: #000;');
             }
           }
         }
