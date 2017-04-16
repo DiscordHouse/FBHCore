@@ -48,13 +48,15 @@ class fbhInstance extends Discord.Client {
       if (cogResolvable.startsWith('https://')) {
         var xhr = new XMLHttpRequest();
         xhr.onload = function (evt) {
-          if (xhr.getAllResponseHeaders().includes('content-type: application/javascript')) {
-            if (xhr.responseText.startsWith('/* Linkable cog */')) {
-              eval(xhr.responseText);
+          if (xhr.responseText.startsWith('/* Linkable cog */')) {
+            try {
+              eval(xhr.responseText); //eslint-disable-line
               return console.log('%c[CogHandler] %cLoaded cog through link!', 'color: #a0a;', 'color: #000;')
-            } else {
-              return console.error('%c[CogHandler] %cInvalid cog link!', 'color: #a0a;', 'color: #000;');
+            } catch (e) {
+              return console.error('%c[CogHandler] %cInvalid cog!', 'color: #a0a;', 'color: #000;');
             }
+          } else {
+            return console.error('%c[CogHandler] %cInvalid cog link!', 'color: #a0a;', 'color: #000;');
           }
         }
         xhr.open('GET', cogResolvable, true)
