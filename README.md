@@ -1,5 +1,5 @@
-# FreeBotHost
-FreeBotHost (FBH) is a open-source, no installation, client-sided bot hosting service.
+# FBHCore
+FBHCore is a Discord.js webpack injector, that can be used with "Cogs/Extensions", that extend functionality of your bot. Additions to the library are welcome.
 
 ## Using it
 ```js
@@ -7,7 +7,7 @@ var bot = new fbhInstance();
 bot.login('token');
 bot.setCog('cog link');
 ```
-NOTE: This is only the core, I am not supplying you with set of instructions how to make authentication system or anything, that is up to you.. You have been given the core, most powerful element of it all.
+NOTE: You'll have to bundle your own interface with the core.
 
 ## Features
 Injects a layer of FBH options and cogs in Discord.js webpack version
